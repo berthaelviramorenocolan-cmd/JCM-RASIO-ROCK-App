@@ -1,4 +1,4 @@
-package com.jcmc.radio;
+package com.app.jcmradiorock;
 
 import com.getcapacitor.BridgeActivity;
 

@@ -10,6 +10,7 @@
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "build:android": "vite build && cap sync android",
+    "build:aab": "cd android && ./gradlew bundleRelease",
     "cap:open": "cap open android"
   },
   "dependencies": {
