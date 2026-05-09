@@ -1,0 +1,9 @@
+{
+  "name": "Remix: JCM Radio - Rock APP 1.0",
+  "description": "Plataforma de streaming de audio con alta interactividad, gestión de publicidad dinámica y dashboard administrativo.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": []
+}

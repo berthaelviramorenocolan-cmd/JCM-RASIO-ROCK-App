@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "AppConfig": {
+      "title": "App Configuration",
+      "description": "Global settings for the radio app, including ads and links.",
+      "type": "object",
+      "properties": {
+        "splashAd": {
+          "type": "object",
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "imageUrl": { "type": "string" },
+            "duration": { "type": "integer" }
+          },
+          "required": ["enabled", "imageUrl", "duration"]
+        },
+        "stickyBanner": {
+          "type": "object",
+          "properties": {
+            "imageUrl": { "type": "string" },
+            "link": { "type": "string" }
+          },
+          "required": ["imageUrl", "link"]
+        },
+        "tvLink": { "type": "string" },
+        "socialLinks": {
+          "type": "object",
+          "properties": {
+            "whatsapp": { "type": "string" },
+            "instagram": { "type": "string" },
+            "tiktok": { "type": "string" },
+            "facebook": { "type": "string" }
+          }
+        },
+        "popupAlert": {
+          "type": "object",
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "title": { "type": "string" },
+            "message": { "type": "string" }
+          }
+        }
+      },
+      "required": ["splashAd", "stickyBanner", "tvLink", "socialLinks"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "A push notification record.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "sentAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "body", "sentAt"]
+    },
+    "User": {
+      "title": "User",
+      "description": "Admin user profile.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "config/main": {
+      "schema": "AppConfig",
+      "description": "Main app configuration document."
+    },
+    "notifications/{notificationId}": {
+      "schema": "Notification",
+      "description": "History of sent notifications."
+    },
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Admin users."
+    }
+  }
+}
